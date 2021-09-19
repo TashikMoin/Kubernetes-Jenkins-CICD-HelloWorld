@@ -1,3 +1,3 @@
-FROM busybox:latest
-ADD log.sh /
-CMD /log.sh
+FROM nginx:latest
+ADD index.html /usr/share/nginx/html/
+
