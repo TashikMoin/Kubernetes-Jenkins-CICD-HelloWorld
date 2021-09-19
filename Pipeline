@@ -1,0 +1,49 @@
+pipeline {
+    agent any
+    
+    environment {
+        registry = "codeclassy/nginx-custom-image"
+        registryCredential = 'codeclassy'
+        dockerImage = ''
+    }
+
+    stages {
+        
+        stage ('Checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/TashikMoin/Kubernetes-Jenkins-CICD-HelloWorld.git']]])
+            }
+        }
+        
+        stage ('Build docker image') {
+            steps {
+                script {
+                    dockerImage = docker.build registry
+                }
+            }
+        }
+        
+        stage('Upload Image') {
+            steps{   
+                script {
+                    docker.withRegistry('', registryCredential ) { dockerImage.push() }
+                }
+            }
+        }
+        
+        
+        stage ('K8 Deploy') {
+            steps {
+                script {
+                    kubernetesDeploy(
+                        configs: 'nginx-deployment.yaml',
+                        kubeconfigId: 'K8',
+                        enableConfigSubstitution: true
+                    )           
+                }
+            }
+        }
+        
+        
+    }
+}
