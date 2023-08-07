@@ -1,0 +1,84 @@
+controller:
+  componentName: "jenkins-master"
+  image: "jenkins/jenkins"
+
+  adminUser: "jenkins"
+  adminPassword: "jenkins"
+  resources:
+    requests:
+      cpu: "50m"
+      memory: "256Mi"
+    limits:
+      cpu: "1500m"
+      memory: "2048Mi"
+  servicePort: 80
+  targetPort: 8080
+  serviceType: LoadBalancer
+  installPlugins:
+    - kubernetes:3937.vd7b_82db_e347b_
+    - workflow-aggregator:596.v8c21c963d92d
+    - git:5.1.0
+    - configuration-as-code:1647.ve39ca_b_829b_42
+    - script-security:1244.ve463715a_f89c
+    - antisamy-markup-formatter:2.7
+    - kubernetes:3690.va_9ddf6635481
+    - kubernetes-client-api:6.3.1-206.v76d3b_6b_14db_b
+    - artifactory:3.17.0 #JFrog Artifactory
+    - aws-java-sdk:1.12.89-292.v2712528e879c
+    - bitbucket:223.vd12f2bca5430 #Bitbucket related
+    - command-launcher:84.v4a_97f2027398
+    - credentials:1189.vf61b_a_5e2f62e
+    - configuration-as-code:1625.v27444588cc3d
+    - cloudbees-bitbucket-branch-source:784.v7fcdc7c670f6 #Bitbucket related
+    - cloudbees-folder:6.758.vfd75d09eea_a_1 #Folders related
+    - docker-commons:1.21
+    - docker-workflow:521.v1a_a_dd2073b_2e
+    - envinject:2.875.v9b_9e962da_a_ec
+    - extended-choice-parameter:346.vd87693c5a_86c
+    - groovy:442.v817e6d937d6c
+    - git:4.11.5
+    - git-parameter:0.9.17
+    - gradle:1.39.4
+    - hashicorp-vault-plugin:356.ved18810a_b_828 #Hashicorp Vault
+    - jdk-tool:55.v1b_32b_6ca_f9ca
+    - jaxb:2.3.8-1
+    - job-dsl:1.79 #Job-DS
+    - locale:144.v1a_998824ddb_3 #Set default jenkins language not browser own
+    - maven-plugin:3.19 #Jenkins plugin for building Maven 2/3 jobs
+    - nodejs:1.5.1
+    - pipeline-groovy-lib:656.va_a_ceeb_6ffb_f7 #Pipeline: Groovy Libraries
+    - pipeline-aws:1.43
+    - role-strategy:561.v9846c7351a_41 #Role-based Authorization Strategy
+    - saml:2.333.vc81e525974a_c #SMAL auth
+    - sonar:2.14 #SonarQube Scanner
+    - slack:616.v03b_1e98d13dd #Slack Notification
+    - sshd:3.249.v2dc2ea_416e33
+    - workflow-job:1289.vd1c337fd5354 #Pipeline: Job
+    - workflow-durable-task-step:1244.vee71f675dee6
+    - workflow-multibranch:733.v109046189126
+    - workflow-basic-steps:1010.vf7a_b_98e847c1
+    - workflow-cps:3659.v582dc37621d8 #Pipeline: Groovy
+    - workflow-aggregator:581.v0c46fa_697ffd
+  installLatestPlugins: true
+  installLatestSpecifiedPlugins: false
+  initializeOnce: true
+  cloudName: "kubernetes"
+
+
+persistence:
+  enabled: true
+  storageClass:
+  accessMode: "ReadWriteOnce"
+  size: "8Gi"
+
+rbac:
+  create: true
+  readSecrets: false
+
+serviceAccount:
+  create: true
+  name: "jenkins"
+
+serviceAccountAgent:
+  create: true
+  name: "jenkins"
