@@ -1,3 +1,4 @@
+# IMPORTANT NOTE: If pod stucks, remove unecessary plugins and deploy chart again.
 controller:
   componentName: "jenkins-master"
   image: "jenkins/jenkins"
