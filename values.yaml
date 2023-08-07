@@ -19,6 +19,11 @@ controller:
     - workflow-aggregator:596.v8c21c963d92d
     - git:5.1.0
     - configuration-as-code:1647.ve39ca_b_829b_42
+    - cloudevents:1.0.0
+    - tekton-client:1.0.3
+    - workflow-aggregator:596.v8c21c963d92d
+    - git:5.1.0
+    - configuration-as-code:1647.ve39ca_b_829b_42
     - script-security:1244.ve463715a_f89c
     - antisamy-markup-formatter:2.7
     - kubernetes:3690.va_9ddf6635481
@@ -28,7 +33,6 @@ controller:
     - bitbucket:223.vd12f2bca5430 #Bitbucket related
     - command-launcher:84.v4a_97f2027398
     - credentials:1189.vf61b_a_5e2f62e
-    - configuration-as-code:1625.v27444588cc3d
     - cloudbees-bitbucket-branch-source:784.v7fcdc7c670f6 #Bitbucket related
     - cloudbees-folder:6.758.vfd75d09eea_a_1 #Folders related
     - docker-commons:1.21
@@ -58,7 +62,6 @@ controller:
     - workflow-multibranch:733.v109046189126
     - workflow-basic-steps:1010.vf7a_b_98e847c1
     - workflow-cps:3659.v582dc37621d8 #Pipeline: Groovy
-    - workflow-aggregator:581.v0c46fa_697ffd
   installLatestPlugins: true
   installLatestSpecifiedPlugins: false
   initializeOnce: true
