@@ -78,7 +78,3 @@ rbac:
 serviceAccount:
   create: true
   name: "jenkins"
-
-serviceAccountAgent:
-  create: true
-  name: "jenkins"
