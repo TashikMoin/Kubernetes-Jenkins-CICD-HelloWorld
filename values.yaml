@@ -17,10 +17,10 @@ controller:
   serviceType: LoadBalancer
   installPlugins:
     - kubernetes:3937.vd7b_82db_e347b_
-    - workflow-aggregator:596.v8c21c963d92d
+    - workflow-aggregator:596.v8c21c963d92d # dependency for tekton
     - git:5.1.0
     - github-branch-source:1732.v3f1889a_c475b_ # dependency requirement for tekton
-    - pipeline-groovy-lib:656.va_a_ceeb_6ffb_f7 # dependency requirement for tekton
+    - pipeline-groovy-lib:656.va_a_ceeb_6ffb_f7 
     - tekton-client:1.0.0
     - configuration-as-code:1647.ve39ca_b_829b_42
     - cloudevents:1.0.0
