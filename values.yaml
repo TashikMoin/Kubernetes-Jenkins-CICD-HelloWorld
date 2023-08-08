@@ -21,7 +21,7 @@ controller:
     - git:5.1.0
     - configuration-as-code:1647.ve39ca_b_829b_42
     - cloudevents:1.0.0
-    - tekton-client:1.0.3
+    - tekton-client:1.0.0
     - workflow-aggregator:596.v8c21c963d92d
     - git:5.1.0
     - configuration-as-code:1647.ve39ca_b_829b_42
