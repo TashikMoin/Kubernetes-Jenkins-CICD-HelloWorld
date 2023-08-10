@@ -4,4 +4,4 @@ helm repo update
 # customize values
 # helm show values jenkins/jenkins >> /tmp/jenkins-values.yaml
 
-helm install jenkins jenkins/jenkins --values values.yaml --namespace jenkins
+helm upgrade --install jenkins jenkins/jenkins --values values.yaml --namespace jenkins
