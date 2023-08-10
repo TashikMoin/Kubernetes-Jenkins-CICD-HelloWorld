@@ -104,6 +104,12 @@ controller:
   initializeOnce: true
   cloudName: "kubernetes"
 
+agent:
+  enabled: true
+  jnlpregistry:
+  image: "yonadev/jnlp-slave-k8s-helm"
+  tag: "latest"
+
 
 persistence:
   enabled: true
